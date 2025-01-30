@@ -1,0 +1,22 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "It's been quite a while since I've used Visual Studio Code, let's use it while trying to make a discord bot.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmccormick521/DiscordBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmccormick521/DiscordBot/issues"
+  },
+  "homepage": "https://github.com/dmccormick521/DiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^14.17.3"
+  }
+}
