@@ -69,4 +69,18 @@ function saveAudioPreference(userId, audioFilePath) {
     });
 }
 
-module.exports = { db, getAudioPreference, saveAudioPreference };
+function deleteAudioPreference(userId) {
+    return new Promise((resolve, reject) => {
+        const query = `DELETE FROM audio_preferences WHERE user_id = ?`;
+        db.run(query, [userId], function (err) {
+            if (err) {
+                console.error('Error deleting audio preference:', err);
+                return reject(false); // Return false if there is an error
+            }
+            console.log(`Delete audio preference for user ${userId}.`);
+            resolve(true); // Return true if deleted successfully
+        });
+    });
+}
+
+module.exports = { db, getAudioPreference, saveAudioPreference, deleteAudioPreference };
