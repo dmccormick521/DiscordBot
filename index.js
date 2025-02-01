@@ -3,7 +3,7 @@ const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates] });
 
 client.commands = new Collection();
 const foldersPath = path.join(__dirname, 'commands');
@@ -29,6 +29,7 @@ const eventFiles = fs.readdirSync(eventsPath).filter(file=> file.endsWith('.js')
 for(const file of eventFiles){
 	const filePath = path.join(eventsPath, file);
 		const event = require(filePath);
+
 		if(event.once){
 			client.once(event.name, (...args) => event.execute(...args))
 		} else{
